@@ -673,6 +673,116 @@ a, button, input, textarea, .certificate-item {
 
 
 
+/* Badges Section */
+.badges-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.badges-left {
+  position: relative;
+  z-index: 10;
+}
+
+.credly-badge-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  max-width: 100%;
+  width: 100%;
+}
+
+.credly-badge-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(100, 200, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(100, 200, 255, 0.1);
+}
+
+.credly-stats-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.view-all-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #64c8ff, #a855f7);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.view-all-badges:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(100, 200, 255, 0.3);
+}
+
+.badges-right {
+  position: relative;
+  z-index: 10;
+}
+
+.individual-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.badge-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(100, 200, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(100, 200, 255, 0.1);
+}
+
+.badge-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.badge-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  display: block;
+}
+
+.no-badges {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+
 /* Modal */
 .modal {
   display: none;
@@ -1148,6 +1258,19 @@ body.modal-open {
 
   .contact-form {
     margin: 0;
+  }
+
+  .badges-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .badges-right {
+    display: none;
+  }
+
+  .individual-badges-grid {
+    grid-template-columns: 1fr;
   }
 
   .form-group input,

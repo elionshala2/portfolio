@@ -6,6 +6,18 @@ const musicVisualizer = document.querySelector('.music-visualizer');
 const welcomeMusicToggle = document.getElementById('welcome-music-toggle');
 const welcomeScreen = document.getElementById('welcome-screen');
 
+// Credly Badge IDs - Add your badge IDs here (the last part of the Credly URL)
+const credlyBadgeIds = [
+  '0ee9fe05-921f-4c7a-8751-c2b0b4a57505',
+  '9a1a911c-e9a3-4899-88c4-c07ec8687425',
+  '1293938a-522e-4c89-a702-20d7a07ac061',
+  'b1c43842-7b38-41a9-9201-83fe975f4e73',
+  'cc885d10-9eb0-4e04-803c-3a2269037022',
+  '40e5f291-4445-4f8e-935b-354b81a8ae15',
+  '8ce9141d-ae9e-4743-84ce-8bfa581356cb',
+  // Add more badge IDs as you earn them
+];
+
 // Initialize welcome screen state
 document.body.classList.add('welcome-active');
 
@@ -50,18 +62,18 @@ function toggleWelcomeMusic() {
 function enterSite() {
   welcomeScreen.classList.add('hidden');
   document.body.classList.remove('welcome-active');
-  
+
   // Trigger hero animations
   const heroH1 = document.querySelector('.hero h1');
   const heroSubtitle = document.querySelector('.subtitle');
   const heroDescription = document.querySelector('.hero-description');
   const navLinks = document.querySelector('.nav-links');
-  
+
   if (heroH1) heroH1.classList.add('animate-in');
   if (heroSubtitle) heroSubtitle.classList.add('animate-in');
   if (heroDescription) heroDescription.classList.add('animate-in');
   if (navLinks) navLinks.classList.add('animate-in');
-  
+
   if (!welcomeMusicOff) {
     initAudioContext();
     bgMusic.play().catch(e => console.log('Audio play failed:', e));
@@ -296,6 +308,90 @@ document.querySelectorAll('a, button, .certificate-item').forEach(link => {
 });
 
 // Contact Form <3
+
+// Credly Badges Loader
+function loadCredlyBadges() {
+  const badgesContainer = document.getElementById('individual-badges-container');
+  if (!badgesContainer) return;
+
+  credlyBadgeIds.forEach(badgeId => {
+    const badgeUrl = `https://www.credly.com/badges/${badgeId}`;
+    // Try local images first (badges folder), then fallback to online
+    const localImageUrls = [
+      `badges/${badgeId}.png`,
+      `badges/${badgeId}.jpg`
+    ];
+
+    createBadgeElement(badgeUrl, localImageUrls, badgesContainer);
+  });
+
+  if (badgesContainer.children.length === 0) {
+    badgesContainer.innerHTML = '<p class="no-badges">Add your badge IDs to the credlyBadgeIds array at the top of app.js</p>';
+  }
+}
+
+function createBadgeElement(url, imageUrls, container) {
+  const badgeWrapper = document.createElement('div');
+  badgeWrapper.className = 'badge-item';
+
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+
+  const img = document.createElement('img');
+  img.alt = 'Credly Badge';
+  img.className = 'badge-image';
+
+  // Handle array of image URLs with fallback
+  let currentTry = 0;
+
+  function tryNextImage() {
+    if (currentTry < imageUrls.length) {
+      img.src = imageUrls[currentTry];
+      currentTry++;
+    } else {
+      // If all local images fail, try online fallback
+      const badgeId = url.split('/').pop();
+      const onlineFallbacks = [
+        `https://images.credly.com/images/${badgeId}/large.png`,
+        `https://images.credly.com/images/${badgeId}/medium.png`,
+        `https://images.credly.com/images/${badgeId}.png`
+      ];
+
+      let onlineTry = 0;
+      function tryOnline() {
+        if (onlineTry < onlineFallbacks.length) {
+          img.src = onlineFallbacks[onlineTry];
+          onlineTry++;
+        } else {
+          // Final fallback: placeholder
+          img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%2364c8ff" stroke-width="1"%3E%3Ccircle cx="12" cy="8" r="4"/%3E%3Cpath d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/%3E%3C/svg%3E';
+        }
+      }
+      tryOnline();
+    }
+  }
+
+  img.onload = function() {
+    console.log('Badge loaded successfully:', img.src);
+  };
+
+  img.onerror = function() {
+    console.log('Failed to load badge image, trying next option:', imageUrls[currentTry]);
+    tryNextImage();
+  };
+
+  // Start with first image URL
+  tryNextImage();
+
+  link.appendChild(img);
+  badgeWrapper.appendChild(link);
+  container.appendChild(badgeWrapper);
+}
+
+// Load badges when page loads
+document.addEventListener('DOMContentLoaded', loadCredlyBadges);
 
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
