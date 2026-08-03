@@ -1,7 +1,13 @@
 let musicPlaying = false;
+let welcomeMusicOff = false;
 const bgMusic = document.getElementById('bg-music');
 const musicToggle = document.getElementById('music-toggle');
 const musicVisualizer = document.querySelector('.music-visualizer');
+const welcomeMusicToggle = document.getElementById('welcome-music-toggle');
+const welcomeScreen = document.getElementById('welcome-screen');
+
+// Initialize welcome screen state
+document.body.classList.add('welcome-active');
 
 let audioContext;
 let analyser;
@@ -20,6 +26,50 @@ function initAudioContext() {
     analyser.connect(audioContext.destination);
   }
 }
+
+function toggleWelcomeMusic() {
+  welcomeMusicOff = !welcomeMusicOff;
+  if (welcomeMusicOff) {
+    welcomeMusicToggle.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="6" y="4" width="4" height="16"/>
+        <rect x="14" y="4" width="4" height="16"/>
+      </svg>
+    `;
+  } else {
+    welcomeMusicToggle.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18V5l12-2v13"/>
+        <circle cx="6" cy="18" r="3"/>
+        <circle cx="18" cy="16" r="3"/>
+      </svg>
+    `;
+  }
+}
+
+function enterSite() {
+  welcomeScreen.classList.add('hidden');
+  document.body.classList.remove('welcome-active');
+  
+  if (!welcomeMusicOff) {
+    initAudioContext();
+    bgMusic.play().catch(e => console.log('Audio play failed:', e));
+    musicPlaying = true;
+    musicVisualizer.classList.add('active');
+    musicToggle.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="6" y="4" width="4" height="16"/>
+        <rect x="14" y="4" width="4" height="16"/>
+      </svg>
+    `;
+  }
+}
+
+welcomeScreen.addEventListener('click', (e) => {
+  if (e.target !== welcomeMusicToggle && !welcomeMusicToggle.contains(e.target)) {
+    enterSite();
+  }
+});
 
 function toggleMusic() {
   if (musicPlaying) {
@@ -147,7 +197,7 @@ function drawGrid() {
   const offsetY = (time * 5) % gridSize;
 
   for (let x = -gridSize; x < canvas.width + gridSize; x += gridSize) {
-    for (let y = 0; y < canvas.height; y += 5) {
+    for (let y = -gridSize; y < canvas.height + gridSize; y += 5) {
       const screenX = x + offsetX;
       const screenY = y + offsetY;
 
@@ -174,7 +224,7 @@ function drawGrid() {
   }
 
   for (let y = -gridSize; y < canvas.height + gridSize; y += gridSize) {
-    for (let x = 0; x < canvas.width; x += 5) {
+    for (let x = -gridSize; x < canvas.width + gridSize; x += 5) {
       const screenX = x + offsetX;
       const screenY = y + offsetY;
 
@@ -260,16 +310,14 @@ contactForm.addEventListener('submit', async function (event) {
     });
 
     if (response.ok) {
-      formStatus.style.display = 'block';
-      formStatus.style.color = '#4CAF50'; // Green text
+      formStatus.className = 'form-status success show';
       formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
       contactForm.reset();
     } else {
       throw new Error('Form submission failed');
     }
   } catch (error) {
-    formStatus.style.display = 'block';
-    formStatus.style.color = '#f44336'; // Red text
+    formStatus.className = 'form-status error show';
     formStatus.textContent = 'Oops! Something went wrong. Please try again.';
   } finally {
     submitBtn.textContent = 'Send Message';

@@ -24,6 +24,20 @@
 </head>
 
 <body>
+<div id="welcome-screen" class="welcome-screen">
+  <div class="welcome-content">
+    <h1>Welcome to my portfolio</h1>
+    <p>Click anywhere to enter</p>
+    <button id="welcome-music-toggle" class="music-toggle welcome-music-toggle" onclick="toggleWelcomeMusic()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18V5l12-2v13"/>
+        <circle cx="6" cy="18" r="3"/>
+        <circle cx="18" cy="16" r="3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
 <canvas id="spiderweb"></canvas>
 <div class="cursor"></div>
 <div class="cursor-follower"></div>
@@ -191,21 +205,53 @@
   </div>
 
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Let's work together on something amazing.</p>
-    <form id="contact-form" class="contact-form">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
+    <div class="contact-container">
+      <div class="contact-left">
+        <h2>Contact</h2>
+        <p>Let's work together on something amazing.</p>
+        <form id="contact-form" class="contact-form" autocomplete="off">
+          <div class="form-group">
+            <input type="text" name="client_name" placeholder="Your Name" autocomplete="nope" readonly onfocus="this.removeAttribute('readonly')" required>
+          </div>
+          <div class="form-group">
+            <input type="text" inputmode="email" name="client_email" placeholder="Your Email" autocomplete="nope" readonly onfocus="this.removeAttribute('readonly')" required>
+          </div>
+          <div class="form-group">
+            <textarea name="client_message" placeholder="Your Message" rows="5" autocomplete="nope" readonly onfocus="this.removeAttribute('readonly')" required></textarea>
+          </div>
+          <button type="submit" class="cta-button" id="submit-btn">Send Message</button>
+          <div id="form-status" class="form-status"></div>
+        </form>
       </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
+      <div class="contact-right">
+        <div class="contact-visual">
+          <div class="floating-icon icon-1">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="floating-icon icon-2">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <div class="floating-icon icon-3">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="contact-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="cta-button" id="submit-btn">Send Message</button>
-      <p id="form-status" style="margin-top: 15px; display: none;"></p>
-    </form>
+    </div>
   </section>
 </div>
 
