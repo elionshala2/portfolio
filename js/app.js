@@ -234,3 +234,45 @@ document.querySelectorAll('a, button, .certificate-item').forEach(link => {
   });
 });
 
+// Contact Form <3
+
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+contactForm.addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  // Change button text while sending
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData(contactForm);
+
+  try {
+    // Replace with your Formspree endpoint URL
+    const response = await fetch('https://formspree.io/f/xpqvvjvv', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      formStatus.style.display = 'block';
+      formStatus.style.color = '#4CAF50'; // Green text
+      formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+      contactForm.reset();
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    formStatus.style.display = 'block';
+    formStatus.style.color = '#f44336'; // Red text
+    formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+  } finally {
+    submitBtn.textContent = 'Send Message';
+    submitBtn.disabled = false;
+  }
+});
