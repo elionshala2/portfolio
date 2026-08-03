@@ -31,4 +31,4 @@ To run the project locally without any external dependencies:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/elionshala2/elionshala2.github.io.git](https://github.com/elionshala2/elionshala2.github.io.git)
+   git clone https://github.com/elionshala2/portfolio.git
