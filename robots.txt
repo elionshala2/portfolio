@@ -1,5 +1,13 @@
-# www.robotstxt.org/
+# Hi Googlebot, hope you're having a good day indexing the web.
+# Looking for vulnerabilities?
+# Try checking the contact form instead: /#contact
+# Flag: CTF{n1c3_trY_buT_n0_3xpL01t5_h3r3}
 
-# Allow crawling of all content
+# █████ █     ███  ███  █   █     ████ █   █  ███  █      ███
+# █     █      █  █   █ ██  █    █     █   █ █   █ █     █   █
+# ████  █      █  █   █ █ █ █     ███  █████ █████ █     █████
+# █     █      █  █   █ █  ██        █ █   █ █   █ █     █   █
+# █████ █████ ███  ███  █   █    ████  █   █ █   █ █████ █   █
+
 User-agent: *
 Disallow:
