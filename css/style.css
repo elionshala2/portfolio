@@ -170,8 +170,11 @@ body {
   border-radius: 50px;
   padding: 15px 25px;
   transition: all 0.3s ease;
-  animation: floatButton 3s ease-in-out infinite;
   position: relative;
+}
+
+.welcome-music-toggle-wrapper {
+  animation: floatButton 3s ease-in-out infinite;
 }
 
 @keyframes floatButton {
@@ -213,7 +216,10 @@ body {
 .welcome-music-toggle:hover {
   background: rgba(100, 200, 255, 0.1);
   transform: scale(1.1);
-  animation: none;
+}
+
+.welcome-music-toggle-wrapper:hover {
+  animation-play-state: paused;
 }
 
 .welcome-music-toggle:hover::before {
@@ -390,21 +396,39 @@ a, button, input, textarea, .certificate-item {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: fadeInUp 1s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.hero h1.animate-in {
+  animation: fadeInUp 1s ease forwards;
 }
 
 .subtitle {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 10px;
-  animation: fadeInUp 1s ease 0.2s backwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.subtitle.animate-in {
+  animation: fadeInUp 1s ease 0.2s forwards;
 }
 
 .hero-description {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 40px;
-  animation: fadeInUp 1s ease 0.3s backwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.hero-description.animate-in {
+  animation: fadeInUp 1s ease 0.3s forwards;
 }
 
 /* Glitch Effect */
@@ -496,7 +520,13 @@ a, button, input, textarea, .certificate-item {
 .nav-links {
   display: flex;
   gap: 30px;
-  animation: fadeInUp 1s ease 0.4s backwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.nav-links.animate-in {
+  animation: fadeInUp 1s ease 0.4s forwards;
 }
 
 .nav-links a {

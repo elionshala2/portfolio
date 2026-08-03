@@ -51,6 +51,17 @@ function enterSite() {
   welcomeScreen.classList.add('hidden');
   document.body.classList.remove('welcome-active');
   
+  // Trigger hero animations
+  const heroH1 = document.querySelector('.hero h1');
+  const heroSubtitle = document.querySelector('.subtitle');
+  const heroDescription = document.querySelector('.hero-description');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (heroH1) heroH1.classList.add('animate-in');
+  if (heroSubtitle) heroSubtitle.classList.add('animate-in');
+  if (heroDescription) heroDescription.classList.add('animate-in');
+  if (navLinks) navLinks.classList.add('animate-in');
+  
   if (!welcomeMusicOff) {
     initAudioContext();
     bgMusic.play().catch(e => console.log('Audio play failed:', e));
