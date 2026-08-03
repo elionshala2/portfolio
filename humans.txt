@@ -1,6 +1,6 @@
 /* TEAM */
   Developer: Elion Shala
-  Role: Full-Stack Developer & Systems Designer
+  Role: Full-Stack Developer
   Site: https://github.com/elionshala2
 
 /* SITE */
