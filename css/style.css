@@ -922,3 +922,30 @@ body.modal-open {
   }
 }
 
+/* Fix double cursor and align close button */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #00f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: none !important; /* Forces system cursor to hide completely */
+}
+
+/* Ensure child elements don't trigger system cursor */
+.close-modal * {
+  cursor: none !important;
+  pointer-events: none;
+}
+
+.close-modal:hover {
+  background: rgba(0, 242, 254, 0.1);
+  transform: scale(1.1);
+}

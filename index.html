@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="icon.png">
 
   <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta name="theme-color" content="#0a0a0a">
 </head>
 
@@ -50,12 +51,11 @@
 <div class="container">
   <header class="hero">
     <h1 class="glitch" data-text="Elion Shala">Elion Shala</h1>
-    <p class="subtitle">Full-Stack Developer & Systems Designer</p>
-    <p class="hero-description">Building high-performance web solutions and digital architectures.</p>
-    <nav class="nav-links">
-      <a href="#projects">View Projects</a>
-      <a href="https://github.com/elionshala2" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/elion-shala-0b67053ab/" target="_blank">LinkedIn</a>
+    <p class="subtitle glitch" data-text="Full-Stack Developer, Graphic Designer, Cyber Security Enthusiast">Full-Stack Developer, Graphic Designer, Cyber Security Enthusiast</p>
+    <p class="hero-description">I design web applications, build them end-to-end, and test them for security vulnerabilities.</p>    <nav class="nav-links">
+      <a href="#projects"><i class="fa-solid fa-code"></i> View Projects</a>
+      <a href="https://github.com/elionshala2" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/elion-shala-0b67053ab/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
     </nav>
   </header>
 
@@ -168,7 +168,12 @@
 
   <div id="certificate-modal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <button class="close-modal" onclick="closeModal()" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
       <h2 id="modal-title">Certificate Title</h2>
       <p id="modal-issuer">Issuer</p>
       <div id="modal-content-area" class="modal-content-area">
