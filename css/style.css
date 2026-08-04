@@ -559,7 +559,7 @@ a, button, input, textarea, .certificate-item {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 40px 0;
   animation: fadeInUp 1s ease;
 }
 
@@ -781,6 +781,141 @@ a, button, input, textarea, .certificate-item {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   padding: 20px;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Cybersecurity Section */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(100, 200, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(100, 200, 255, 0.1);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.achievement-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #64c8ff;
+  line-height: 1.4;
+}
+
+.achievement-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.technical-capabilities {
+  margin-top: 30px;
+}
+
+.technical-capabilities h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #64c8ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.capability-group {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.capability-group:hover {
+  border-color: rgba(100, 200, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.capability-group h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.capability-group p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.capability-group code {
+  background: rgba(100, 200, 255, 0.1);
+  color: #64c8ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Skills Section */
+.coding-skills,
+.design-skills {
+  margin-bottom: 40px;
+}
+
+.coding-skills h3,
+.design-skills h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-tag {
+  background: rgba(100, 200, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  color: #64c8ff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: rgba(100, 200, 255, 0.2);
+  border-color: rgba(100, 200, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(100, 200, 255, 0.2);
 }
 
 /* Modal */
@@ -1266,11 +1401,63 @@ body.modal-open {
   }
 
   .badges-right {
-    display: none;
+    display: block;
   }
 
   .individual-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .credly-badge-card {
+    padding: 25px;
+  }
+
+  .achievements-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .achievement-card {
+    padding: 20px;
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+  }
+
+  .achievement-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .technical-capabilities h3 {
+    font-size: 1.4rem;
+  }
+
+  .capability-group {
+    padding: 20px;
+  }
+
+  .capability-group h4 {
+    font-size: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .skills-grid {
+    gap: 8px;
+  }
+
+  .skill-tag {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .coding-skills h3,
+  .design-skills h3 {
+    font-size: 1.2rem;
   }
 
   .form-group input,
