@@ -908,7 +908,6 @@ a, button, input, textarea, .certificate-item {
   font-size: 0.95rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  cursor: default;
 }
 
 .skill-tag:hover {
