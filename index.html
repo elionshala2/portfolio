@@ -29,7 +29,7 @@
     <h1>Welcome to my portfolio</h1>
     <p>Click anywhere to enter</p>
     <div class="welcome-music-toggle-wrapper">
-      <button id="welcome-music-toggle" class="music-toggle welcome-music-toggle" onclick="toggleWelcomeMusic()">
+      <button id="welcome-music-toggle" class="music-toggle welcome-music-toggle" onclick="toggleWelcomeMusic(event)">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M9 18V5l12-2v13"/>
           <circle cx="6" cy="18" r="3"/>
@@ -83,17 +83,52 @@
       <div class="project-card">
         <h3>Flutura Reisen Platform</h3>
         <p>Full-stack web application with encrypted authentication, session handling, and database security.</p>
-        <a href="https://elionshalaa.rf.gd/fluturatourist" target="_blank" class="project-link">View Project →</a>
+        <a href="https://elionshala.page.gd" target="_blank" class="project-link">View Project →</a>
       </div>
       <div class="project-card">
         <h3>KFC Management App</h3>
         <p>Desktop application designed for database syncing, real-time client registrations, and order workflows.</p>
-        <a href="https://github.com/elionshala2" target="_blank" class="project-link">View Project →</a>
       </div>
       <div class="project-card">
         <h3>Hospital Web Design</h3>
         <p>Modern medical UI/UX layout focused on intuitive navigation, asset design, and brand identity.</p>
-        <a href="https://elionshala2.github.io/ElionShala.jpg" target="_blank" class="project-link">View Project →</a>
+        <a href="https://elionshala2.github.io/experience/ElionShala.jpg" target="_blank" class="project-link">View Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience-photos" class="section">
+    <h2>📸 Experience Photos</h2>
+    <div class="experience-photos-grid">
+      <div class="experience-photo-card" onclick="openModal('Flutura Tourist Platform', 'Experience', 'experience/Flutura Tourist.png')">
+        <img src="experience/Flutura Tourist.png" alt="Flutura Tourist Platform">
+        <p>Flutura Tourist Platform</p>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="experience-photo-card" onclick="openModal('KFC Management App', 'Experience', 'experience/KFC.png')">
+        <img src="experience/KFC.png" alt="KFC Management App">
+        <p>KFC Management App</p>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="experience-photo-card" onclick="openModal('Hospital Web Design', 'Experience', 'experience/Health.png')">
+        <img src="experience/Health.png" alt="Hospital Web Design">
+        <p>Hospital Web Design</p>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="experience-photo-card" onclick="openModal('ARRA Rent', 'Experience', 'experience/ARRA Rent.png')">
+        <img src="experience/ARRA Rent.png" alt="ARRA Rent">
+        <p>ARRA Rent</p>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="experience-photo-card" onclick="openModal('ARRA Shoes', 'Experience', 'experience/ARRA Shoes.png')">
+        <img src="experience/ARRA Shoes.png" alt="ARRA Shoes">
+        <p>ARRA Shoes</p>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="experience-photo-card" onclick="openModal('Spotless', 'Experience', 'experience/Spotless.png')">
+        <img src="experience/Spotless.png" alt="Spotless">
+        <p>Spotless</p>
+        <span class="click-hint">Click to view</span>
       </div>
     </div>
   </section>
@@ -277,6 +312,11 @@
       <div class="certificate-item" onclick="openModal('Introduction To SQL', 'DataCamp', 'certs/Introduction to SQL.jpg')">
         <h3>Introduction To SQL</h3>
         <span class="issuer">DataCamp</span>
+        <span class="click-hint">Click to view</span>
+      </div>
+      <div class="certificate-item" onclick="openModal('Community-Wide Hackathon', 'CLIPP', 'certs/Community Wide Hackathon.jpg')">
+        <h3>Community-Wide Hackathon 3rd Place</h3>
+        <span class="issuer">Clipp</span>
         <span class="click-hint">Click to view</span>
       </div>
     </div>

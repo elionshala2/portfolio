@@ -39,7 +39,8 @@ function initAudioContext() {
   }
 }
 
-function toggleWelcomeMusic() {
+function toggleWelcomeMusic(event) {
+  event.stopPropagation();
   welcomeMusicOff = !welcomeMusicOff;
   if (welcomeMusicOff) {
     welcomeMusicToggle.innerHTML = `
@@ -160,6 +161,12 @@ window.onclick = function(event) {
     closeModal();
   }
 }
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
 
 const canvas = document.getElementById('spiderweb');
 const ctx = canvas.getContext('2d');
@@ -297,7 +304,7 @@ document.addEventListener('mouseup', () => {
   cursor.style.transform = 'translate(-50%, -50%) scale(1)';
 });
 
-document.querySelectorAll('a, button, .certificate-item').forEach(link => {
+document.querySelectorAll('a, button, .certificate-item, .experience-photo-card').forEach(link => {
   link.addEventListener('mouseenter', () => {
     cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
   });
